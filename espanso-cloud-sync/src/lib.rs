@@ -188,3 +188,14 @@ async fn perform_sync(client: &Client, config: &SyncConfig, sync_file_path: &Pat
     
     Ok(())
 }
+
+pub fn logout_cli(config_dir: std::path::PathBuf) -> Result<(), anyhow::Error> {
+    let sync_file = config_dir.join("sync.yml");
+    if sync_file.exists() {
+        std::fs::remove_file(&sync_file)?;
+        println!("Logged out successfully. Cloud Sync is now disabled.");
+    } else {
+        println!("You are not currently logged in.");
+    }
+    Ok(())
+}

@@ -18,6 +18,11 @@ fn sync_main(args: CliModuleArgs) -> i32 {
             eprintln!("Login failed: {}", e);
             return 1;
         }
+    } else if cli_args.subcommand_matches("logout").is_some() {
+        if let Err(e) = espanso_cloud_sync::logout_cli(paths.config) {
+            eprintln!("Logout failed: {}", e);
+            return 1;
+        }
     } else {
         eprintln!("unknown command, please run `espanso sync --help` to see a list of valid ones.");
         return 1;
