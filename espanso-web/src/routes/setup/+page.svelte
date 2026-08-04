@@ -39,13 +39,19 @@
 		<div class="step glass-card">
 			<div class="step-number">02</div>
 			<div class="step-content">
-				<h2>Sign In to Your Account</h2>
-				<p>Go to your dashboard, sign in with Google, and copy your User ID from the account settings page.</p>
+				<h2>Connect to Devspanso</h2>
+				<p>Simply use the built-in sync command to log in. This will open your browser so you can securely authenticate with your account.</p>
+				<div class="code-block">
+					<div class="code-header">
+						<span>Terminal</span>
+						<button class="copy-btn" onclick={() => navigator.clipboard.writeText('espanso sync login')}>Copy</button>
+					</div>
+					<pre><code>espanso sync login</code></pre>
+				</div>
 				<div class="info-box">
 					<span class="info-icon">💡</span>
-					<span>Your User ID is a unique identifier that the Espanso client uses to securely fetch your snippets from the server. It never exposes your Google account credentials.</span>
+					<span>This securely registers your device with the cloud and automatically configures everything. You can log out anytime using <code class="inline-code">espanso sync logout</code>.</span>
 				</div>
-				<a href="/dashboard" class="btn btn-primary" style="margin-top: 1rem;">Go to Dashboard →</a>
 			</div>
 		</div>
 
@@ -53,40 +59,18 @@
 		<div class="step glass-card">
 			<div class="step-number">03</div>
 			<div class="step-content">
-				<h2>Configure Espanso for Cloud Sync</h2>
-				<p>Add a <code class="inline-code">cloud.yml</code> file to your Espanso config directory:</p>
-				<div class="code-block">
-					<div class="code-header">
-						<span>~/.config/espanso/match/cloud.yml</span>
-						<button class="copy-btn">Copy</button>
-					</div>
-					<pre><code># Devspanso Sync Configuration
-# This file is managed automatically by espanso-cloud-sync.
-# Do not edit manually.
-espanso_cloud:
-  user_id: "YOUR_USER_ID_HERE"
-  api_base: "https://espanso-cloud.your-domain.workers.dev"</code></pre>
-				</div>
-				<p style="margin-top: 1rem;">Replace <code class="inline-code">YOUR_USER_ID_HERE</code> with the User ID from your dashboard.</p>
-			</div>
-		</div>
-
-		<!-- Step 4 -->
-		<div class="step glass-card">
-			<div class="step-number">04</div>
-			<div class="step-content">
-				<h2>Run the Sync Agent</h2>
-				<p>The Devspanso sync agent runs in the background, listens for server push events, and updates your local YAML files automatically.</p>
+				<h2>Start the Sync Daemon</h2>
+				<p>Espanso will now automatically sync your snippets in the background while the daemon is running. To make sure the sync service is active, restart your daemon.</p>
 				<div class="code-block">
 					<div class="code-header">
 						<span>Terminal</span>
-						<button class="copy-btn" onclick={() => navigator.clipboard.writeText('espanso-cloud sync --daemon')}>Copy</button>
+						<button class="copy-btn" onclick={() => navigator.clipboard.writeText('espanso restart')}>Copy</button>
 					</div>
-					<pre><code>espanso-cloud sync --daemon</code></pre>
+					<pre><code>espanso restart</code></pre>
 				</div>
 				<div class="info-box" style="margin-top: 1rem;">
 					<span class="info-icon">🔄</span>
-					<span>The agent will check your snippet hash on startup. If it differs from the server, it will download and apply the latest snippets. Any conflicts are resolved automatically (server wins for edits made within 5 minutes of each other).</span>
+					<span>The sync agent runs transparently in the background, keeping your snippets instantly synced across all devices whenever a change is detected!</span>
 				</div>
 			</div>
 		</div>
