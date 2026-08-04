@@ -1,6 +1,6 @@
-# ![Espanso Logo](images/espanso-dark.png#gh-dark-mode-only) ![Espanso Logo](images/espanso-light.png#gh-light-mode-only)
+# Devspanso
 
-> *A cross-platform Text Expander written in Rust*
+A cross-platform Text Expander written in Rust*
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/espanso/espanso)
 ![Maintenance](https://img.shields.io/badge/Maintained-yes-green.svg)
@@ -17,7 +17,7 @@
 
 ## Quick Links
 
-* [espanso website](https://espanso.org)
+* [Devspanso website](https://devspanso.devare.dev)
 * [espanso hub](https://hub.espanso.org/)
 
 ### What is a Text Expander?
