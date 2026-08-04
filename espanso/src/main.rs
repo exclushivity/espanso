@@ -75,6 +75,7 @@ static CLI_HANDLERS: LazyLock<Vec<CliModule>> = LazyLock::new(|| {
         cli::package::new(),
         cli::match_cli::new(),
         cli::cmd::new(),
+        cli::sync::new(),
     ]
 });
 
@@ -316,6 +317,11 @@ For example, specifying 'email' is equivalent to 'match/email.yml'."#))
         .subcommand(
         SubCommand::with_name("status").about("Check if the espanso daemon is running or not."))
         .about("A collection of commands to manage the Espanso service (for example, enabling auto-start on system boot)."),
+    )
+    .subcommand(
+      SubCommand::with_name("sync")
+        .about("Cloud sync commands")
+        .subcommand(SubCommand::with_name("login").about("Authenticate with Devspanso cloud sync"))
     )
     .subcommand(SubCommand::with_name("match")
         .about("List and execute matches from the CLI")

@@ -16,7 +16,7 @@ members = [
   "espanso-mac-utils",
   "espanso-kvs",
   "espanso-engine",
-  "espanso-package",
+  "espanso-package", "espanso-cloud-sync",
 ]
 
 [workspace.lints.clippy]

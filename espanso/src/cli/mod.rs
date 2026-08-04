@@ -38,6 +38,7 @@ pub mod stats;
 pub mod util;
 pub mod workaround;
 pub mod worker;
+pub mod sync;
 
 // we really need these bools until we rewrite the CLI in the Derive API of clap
 #[allow(dead_code, clippy::struct_excessive_bools)]

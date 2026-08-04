@@ -158,6 +158,11 @@ fn worker_main(args: CliModuleArgs) -> i32 {
     secure_input::initialize_and_spawn(engine_secure_input_sender)
         .expect("unable to initialize secure input watcher");
 
+    // Initialize Cloud Sync
+    if let Err(e) = espanso_cloud_sync::initialize_and_spawn(paths.config.clone(), paths.config.join("match")) {
+        error!("Cloud sync failed to start: {}", e);
+    }
+
     eventloop
         .run(Box::new(move |event| {
             if let Err(error) = engine_ui_event_sender.send(event) {
